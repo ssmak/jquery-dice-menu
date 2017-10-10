@@ -1,3 +1,8 @@
+/*!
+ * jquery-dice-menu v1.0.0 (https://github.com/ssmak/jquery-dice-menu)
+ * Author: Steve Mak (https://github.com/ssmak)
+ * Licensed under the MIT license
+ */
 "use strict";
 
 (function($) {

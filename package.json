@@ -1,0 +1,19 @@
+{
+  "name": "jquery-dice-menu",
+  "version": "1.0.0",
+  "description": "Fixed location floating menu (expandable)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssmak/jquery-dice-menu.git"
+  },
+  "author": "Steve Mak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ssmak/jquery-dice-menu/issues"
+  },
+  "homepage": "https://github.com/ssmak/jquery-dice-menu#readme"
+}
