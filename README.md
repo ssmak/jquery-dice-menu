@@ -4,15 +4,15 @@ Fixed location floating menu (expandable)
 Usage:
 ```css
 <!-- CSS : Dice Menu Style Sheet -->
-<link rel="stylesheet" href="dice-menu.min.css">
+<link rel="stylesheet" href="dist/css/dice-menu.min.css">
 ```
 
 ```javascript
 <!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <!-- jQuery extension `Dice Menu` -->
-<script src="dice-menu.min.js"></script>
+<script src="dist/js/dice-menu.min.js"></script>
 ```
 
 ```html
