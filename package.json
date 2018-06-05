@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/ssmak/jquery-dice-menu/issues"
   },
-  "homepage": "https://github.com/ssmak/jquery-dice-menu#readme"
+  "homepage": "https://github.com/ssmak/jquery-dice-menu#readme",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  }
 }

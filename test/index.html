@@ -3,22 +3,23 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Dice Menu Example</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-		<link rel="stylesheet" href="dist/css/dice-menu.min.css">
+		<!-- Font awesome 4 -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<!--  Dice Menu stylesheet -->
+		<link rel="stylesheet" href="../src/scss/jq.dice-menu.min.css" />
 	</head>
 	<body>
-		<!-- Dice Menu -->
-		<ul class="dice-menu">
-			<li><span class="fa fa-circle-o-notch"></span></li>
-			<li><span class="fa fa-comment-o" href="#para2"></span></li>
-			<li><span class="fa fa-envelope" href="#para3"></span></li>
-			<li><span class="fa fa-coffee" href="https://www.gmail.com" target="_blank"></span></li>
-			<li><span class="fa fa-cc-amex" href="https://www.yahoo.com"></span></li>
-			<li><span class="fa fa-google-wallet" href="https://www.hotmail.com"></span></li>
-			<li><span class="fa fa-money" href="https://www.gmail.com"></span></li>
-			<li><span href="https://www.gmail.com">12</span></li>
-			<li><span href="https://www.gmail.com">34</span></li>
+		<!-- Dice Menu, we use font-awesome 4 here -->
+		<ul class="jq-dice-menu">
+			<li state="close"><span class="fa fa-th-large"></span></li>
+			<li><span class="fa fa-header" href="#para2"></span></li>
+			<li><span class="fa fa-arrows-v" href="#para3"></span></li>
+			<li><span class="fa fa-google" href="https://www.gmail.com" target="_blank"></span></li>
+			<li><span class="fa fa-google-plus" href="https://plus.google.com/discover" target="_blank"></span></li>
+			<li><span class="fa fa-github" href="https:/github.com"></span></li>
+			<li><span class="fa fa-yahoo" href="https://hk.yahoo.com"></span></li>
 		</ul>
+		<!-- Demo content -->
 		<div class="content">
 			<h1>A long content</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consequat nunc in nibh feugiat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In hac habitasse platea dictumst. In lacinia sodales commodo. Nam lorem enim, facilisis ut iaculis ac, mattis non diam. Cras nec nibh vel lacus aliquet mattis. Nunc dapibus, lectus at molestie laoreet, sem velit aliquet velit, at consectetur diam neque vitae erat. Pellentesque justo dui, ullamcorper ac pulvinar a, convallis a nisi. Curabitur luctus, nunc quis varius tincidunt, quam lorem consectetur felis, eu congue tellus justo non velit. Etiam eget velit lacus. Pellentesque mollis luctus risus, sit amet blandit nulla accumsan nec. Nunc eu iaculis lorem. Aenean porta venenatis ultrices. Suspendisse et leo id ligula suscipit convallis sodales in enim. Ut iaculis ligula et tellus tristique consectetur. Cras mauris leo, lacinia vel pretium sagittis, lobortis ac risus. Cras turpis felis, accumsan nec placerat ac, gravida adipiscing metus.</p>
@@ -43,8 +44,8 @@
 			<p>Donec venenatis libero et lacus rhoncus ut porta tortor vestibulum. Donec aliquam massa eget nulla tempus ut sagittis mauris iaculis. Integer diam odio, condimentum ac mollis id, hendrerit ac lacus. Vivamus viverra tempor mattis. Aenean sed lacus leo, in tempor lorem. Mauris accumsan dolor sed felis dapibus tincidunt vestibulum velit tincidunt. Etiam turpis tortor, pretium et mattis ac, fringilla lacinia lorem. Phasellus suscipit nibh sed arcu aliquet quis ornare orci molestie. Aliquam elementum tincidunt sem, quis auctor lorem laoreet sed. Nullam vitae tellus ac felis vestibulum malesuada quis sed odio. Nunc rhoncus eros eget dui commodo sit amet scelerisque tortor gravida. Duis convallis orci et ligula porttitor pretium. Nam lobortis, ligula sit amet vestibulum hendrerit, orci ante sollicitudin ipsum, vel hendrerit libero quam congue nisl. Cras et massa nibh.</p>
 		</div>
 	</body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-	<!-- <script src="dist/js/dice-menu.js"></script> -->
-	<script src="dist/js/dice-menu.min.js"></script>
+	<!-- Those libraries will be loaded as dependencies but it will load from CDN automatically if not existed. -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
+	<script src="../src/jq.dice-menu.js"></script>
 </html>
