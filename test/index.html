@@ -10,17 +10,34 @@
 	</head>
 	<body>
 		<!-- Dice Menu, we use font-awesome 4 here -->
-		<ul class="jq-dice-menu">
-			<li state="close"><span class="fa fa-th-large"></span></li>
-			<li><span class="fa fa-header" href="#para2"></span></li>
-			<li><span class="fa fa-arrows-v" href="#para3"></span></li>
-			<li><span class="fa fa-google" href="https://www.gmail.com" target="_blank"></span></li>
-			<li><span class="fa fa-google-plus" href="https://plus.google.com/discover" target="_blank"></span></li>
-			<li><span class="fa fa-github" href="https:/github.com"></span></li>
-			<li><span class="fa fa-yahoo" href="https://hk.yahoo.com"></span></li>
+		<ul class="jq-dice-menu" layout="column" snap-to="right" distance="40%" show-hints="true" hints-order="footer">
+			<div class="jq-items">
+				<!-- first element as a switch button -->
+				<li state="close"><span class="fa fa-th-large"></span></li>
+				<!-- page anchor to paragraph 2 -->
+				<li><span class="fa fa-header" href="#para2" hint="para2"></span></li>
+				<!-- page anchor to paragraph 3 -->
+				<li><span class="fa fa-arrows-v" href="#para3" hint="para3"></span></li>
+				<!-- open a page in a new window -->
+				<li><span class="fa fa-google-plus" href="https://plus.google.com/discover" target="_blank" hint="Google Plus"></span></li>
+				<!-- open a page in current window -->
+				<li><span class="fa fa-github" href="https:/github.com" hint="Github"></span></li>
+				<!-- page link without hint -->
+				<li><span class="fa fa-yahoo" href="https://hk.yahoo.com"></span></li>
+				<!-- link to phone number -->
+				<li><span class="fa fa-phone" href="tel:+85299887766" hint="Call to hotline"></span></li>
+				<!-- link to email address -->
+				<li><span class="fa fa-envelope" href="mailto:donotreply@github.com" hint="Email for support"></span></li>
+				<!-- page anchor to the top of the page -->
+				<li><span class="fa fa-angle-double-up" href="#top"></span></li>
+			</div>
+			<!-- hints of button -->
+			<div class="jq-hints">
+				<span>&nbsp;</span>
+			</div>
 		</ul>
 		<!-- Demo content -->
-		<div class="content">
+		<div id="top" class="content">
 			<h1>A long content</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam consequat nunc in nibh feugiat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In hac habitasse platea dictumst. In lacinia sodales commodo. Nam lorem enim, facilisis ut iaculis ac, mattis non diam. Cras nec nibh vel lacus aliquet mattis. Nunc dapibus, lectus at molestie laoreet, sem velit aliquet velit, at consectetur diam neque vitae erat. Pellentesque justo dui, ullamcorper ac pulvinar a, convallis a nisi. Curabitur luctus, nunc quis varius tincidunt, quam lorem consectetur felis, eu congue tellus justo non velit. Etiam eget velit lacus. Pellentesque mollis luctus risus, sit amet blandit nulla accumsan nec. Nunc eu iaculis lorem. Aenean porta venenatis ultrices. Suspendisse et leo id ligula suscipit convallis sodales in enim. Ut iaculis ligula et tellus tristique consectetur. Cras mauris leo, lacinia vel pretium sagittis, lobortis ac risus. Cras turpis felis, accumsan nec placerat ac, gravida adipiscing metus.</p>
 			<p id="para2">Etiam ultrices luctus semper. Integer convallis rutrum sollicitudin. Fusce vestibulum rhoncus pharetra. Etiam quam tortor, blandit in euismod egestas, semper pellentesque est. Donec rhoncus arcu vitae odio eleifend vitae varius quam commodo. Suspendisse potenti. Cras elit sapien, luctus congue pharetra faucibus, pulvinar quis dui. Nulla in venenatis ante. Aenean a neque nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse pretium aliquam pellentesque. Fusce a lectus diam, vitae molestie ligula. Aliquam sed quam lectus, sit amet egestas tortor. Vestibulum consectetur sodales erat vel sagittis. Nunc arcu leo, pretium ac porttitor sed, pellentesque quis metus. Etiam eget diam dolor. Cras et leo eget purus rutrum tincidunt sodales ac urna. In aliquam rhoncus lorem sit amet malesuada.</p>

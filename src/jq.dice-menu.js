@@ -46,31 +46,99 @@ var util = {
 })(function () {
   // all dependencies loaded
   /*
+   * Get setting from user and override the default style
+   */
+  var userLayout = $('.jq-dice-menu').attr('layout');
+  var userSnapto = $('.jq-dice-menu').attr('snap-to');
+  var userDistance = $('.jq-dice-menu').attr('distance');
+  var userShowHints = $('.jq-dice-menu').attr('show-hints');
+  var userHintsOrder = $('.jq-dice-menu').attr('hints-order');
+
+  // layout
+  if (!(typeof userLayout != 'undefined' && /^row|column$/.test(userLayout))) {
+    // not set -> use default
+    userLayout = 'column';
+  }
+  // snap-to
+  if (!(typeof userSnapto != 'undefined' && /^top|right|bottom|left$/.test(userSnapto))) {
+    // not set -> use default
+    userSnapto = 'right';
+  }
+
+  // distance
+  if (!(typeof userDistance != 'undefined' && /^\d+(%|px)$/.test(userDistance))) {
+    // not set -> use default
+    userDistance = '45%';
+  }
+
+  // show-hints
+  if (!(typeof userShowHints != 'undefined' && /^true|false$/.test(userShowHints))) {
+    // not set -> use default
+    userShowHints = 'true';
+  }
+
+  // hints-order
+  if (!(typeof userHintsOrder != 'undefined' && /^header|footer$/.test(userHintsOrder))) {
+    // not set -> use default
+    userHintsOrder = 1;
+  }
+
+  /*
+   * Assign class based on setting
+   */
+  console.warn(userLayout + ' ' + userSnapto);
+  $('.jq-dice-menu').addClass(userLayout + ' ' + userSnapto);
+  // if(userSnapto === 'right') {
+  //   if(userLayout === 'column') {
+  //     console.warn('right-column');
+  //     $('.jq-dice-menu').addClass('column right');
+  //   }
+  // }
+  // if(userSnapto === 'left') {
+  //   if(userLayout === 'column') {
+  //     console.warn('left-column');
+  //     $('.jq-dice-menu').addClass('column left');
+  //   }
+  // }
+  // if(userSnapto === 'top') {
+  //   if(userLayout === 'row') {
+  //     console.warn('top-row');
+  //     $('.jq-dice-menu').addClass('row top');
+  //   }
+  // }
+  // if(userSnapto === 'bottom') {
+  //   if(userLayout === 'row') {
+  //     console.warn('bottom-row');
+  //     $('.jq-dice-menu').addClass('row bottom');
+  //   }
+  // }
+
+  /*
    * Register menu event - menu open/close
    */
-  $('.jq-dice-menu > li:first-child').click(function (object) {
+  $('.jq-items > li:first-child').click(function (object) {
     // click the menu switch -> expand the menu
     var state = $(object.currentTarget).attr('state');
     if (state === 'close') {
       // close -> open
       $(object.currentTarget).attr('state', 'open');
-      $('.jq-dice-menu > li:nth-child(n + 2)').css('display', 'flex');
+      $('.jq-items > li:nth-child(n + 2)').css('display', 'flex');
     } else {
       // open -> close
       $(object.currentTarget).attr('state', 'close');
-      $('.jq-dice-menu > li:nth-child(n + 2)').css('display', 'none');
+      $('.jq-items > li:nth-child(n + 2)').css('display', 'none');
     }
   });
 
   /*
    * Menu item click event
    */
-  $('.jq-dice-menu > li:nth-child(n + 2)').click(function (object) {
+  $('.jq-items > li:nth-child(n + 2)').click(function (object) {
     var link = $(object.currentTarget).children('span').attr('href');
     var target = $(object.currentTarget).children('span').attr('target');
 
     // action depends on link
-    // anchor
+    // page anchor
     if (/^#/.test(link)) {
       $('html').stop().animate({
         scrollTop: $(link).offset().top
@@ -78,8 +146,8 @@ var util = {
       return;
     }
 
-    // hyperlink
-    if (/^http/.test(link)) {
+    // hyperlink as url
+    if (/^http|tel|mailto/.test(link)) {
       //check target
       if (typeof target === 'string') {
         // target is set
@@ -97,6 +165,13 @@ var util = {
 
       return;
     }
+  }).mouseover(function (object) {
+    var hint = $(object.currentTarget).children('span').attr('hint');
+    if (typeof hint != 'undefined') {
+      $('.jq-hints > span').html(hint);
+    }
+  }).mouseout(function (object) {
+    $('.jq-hints > span').html('&nbsp;');
   });
 });
 //# sourceMappingURL=jq.dice-menu.js.map

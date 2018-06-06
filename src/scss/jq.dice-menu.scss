@@ -3,7 +3,7 @@ $jq-dice-size: 16px;
 $jq-dice-font-color: #fff;
 $jq-dice-font-size: 14pt;
 $jq-dice-opacity: 0.6;
-$jq-dice-padding: 8px;
+$jq-dice-padding: 10px;
 $jq-dice-border: 1px solid #000;
 $jq-dice-distance: 0;
 
@@ -11,6 +11,7 @@ $jq-dice-border-radius: 8px;
 // $jq-dice-border-radius: 50%; //circle = 50%
 
 .jq-dice-menu {
+background: yellow;
 
 	@keyframes jq-dice-menu-fadeIn {
     from {
@@ -22,40 +23,117 @@ $jq-dice-border-radius: 8px;
   }
 
 	display: flex;
-	flex-direction: column;
 	position: fixed;
-	top: 40%;
-	right: 0;
+	margin: 0;
+	padding: 0;
 
-	li {
+	/*
+	 * Layout
+	 */
+	// Column
+	&.column {
+		flow-direction: column;
+		flex-wrap: wrap;
+
+		.jq-items {
+			flex-direction: column;
+		}
+
+		.jq-hints {
+			order: 3;
+			width: 100%;
+		}
+	}
+	// Row
+	&.row {
+		flow-direction: row;
+		flex-wrap: wrap;
+
+		.jq-items {
+			flex-direction: row;
+		}
+	}
+
+	/*
+	 * Postion
+	 */
+	// Right
+	&.right {
+		justify-content: flex-end;
+		right: 0;
+
+		.jq-hints {
+			justify-content: flex-end;
+		}
+	}
+	// Left
+	&.left {
+		justify-content: flex-start;
+		left: 0;
+
+		.jq-hints {
+			justify-content: flex-start;
+		}
+	}
+	// Top
+	&.top {
+		top: 0;
+
+		.jq-hints {
+			order: 3;
+			width: 100%;
+		}
+	}
+	// Bottom
+	&.bottom {
+		bottom: 0;
+
+		.jq-hints {
+			order: 1;
+			width: 100%;
+		}
+	}
+
+	.jq-items {
 		display: flex;
-		width: $jq-dice-size;
-		height: $jq-dice-size;
-		padding: $jq-dice-padding;
-		border: $jq-dice-border;
-		border-radius: $jq-dice-border-radius;
-		background: $jq-dice-color;
-		opacity: $jq-dice-opacity;
-		line-height: $jq-dice-size;
-		justify-content: center;
-		align-items: center;
-		cursor: pointer;
-		margin-bottom: $jq-dice-distance;
+		order: 2;
 
-		&:nth-child(n + 2) {
-			display: none;
-		}
+		li {
+			display: flex;
+			align-self: flex-end;
+			width: $jq-dice-size;
+			height: $jq-dice-size;
+			padding: $jq-dice-padding;
+			border: $jq-dice-border;
+			border-radius: $jq-dice-border-radius;
+			background: $jq-dice-color;
+			opacity: $jq-dice-opacity;
+			line-height: $jq-dice-size;
+			justify-content: center;
+			// align-items: center;
+			cursor: pointer;
+			margin-bottom: $jq-dice-distance;
 
-		span {
-			color: $jq-dice-font-color;
-			font-size: $jq-dice-font-size;
-		}
+			&:nth-child(n + 2) {
+				display: none;
+			}
 
-		&:hover {
-			animation-name: jq-dice-menu-fadeIn;
-			animation-duration: 0.5s;
-	    animation-iteration-count: 1;
-	    animation-fill-mode: forwards;
+			span {
+				color: $jq-dice-font-color;
+				font-size: $jq-dice-font-size;
+			}
+
+			&:hover {
+				animation-name: jq-dice-menu-fadeIn;
+				animation-duration: 0.5s;
+		    animation-iteration-count: 1;
+		    animation-fill-mode: forwards;
+			}
 		}
+	}
+
+	.jq-hints {
+		display: flex;
+		background: blue;
 	}
 }
