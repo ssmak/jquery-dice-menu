@@ -13,16 +13,6 @@
 It's a big challenge for the website navigation on mobile which is limited and ralatively small screen size and tapped by finger.<br />
 **jquery-dice-menu** targets on maxmize the screen usage by collapsing the menu to a small size dice and can be expanded to a full menu bar on demand.
 
-<div align="center">
-  <a href="https://paypal.me/ssmak">
-    <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="PayPal Donation" />
-  </a>
-  <br />
-  <a href="https://paypal.me/ssmak">
-    <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" alt="PayPal" />
-  </a>
-</div>
-
 ## Features
 By supporting the optional attributes, you can customize the menu by:
 #### 1. Layout (Default: column)
@@ -39,6 +29,16 @@ Hints can be enabled or disabled.
 The location of the hints.
 #### 7. Menu toggle status (Default: false)
 Is the menu opened by default?
+
+<div align="center">
+  <a href="https://paypal.me/ssmak">
+    <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="PayPal Donation" />
+  </a>
+  <br />
+  <a href="https://paypal.me/ssmak">
+    <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" alt="PayPal" />
+  </a>
+</div>
 
 ## Demonstration on CodePen
 https://codepen.io/ssmak/pen/jKMaeV
