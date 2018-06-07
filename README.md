@@ -13,7 +13,6 @@
 It's a big challenge for the website navigation on mobile which is limited and ralatively small screen size and tapped by finger.<br />
 **jquery-dice-menu** targets on maxmize the screen usage by collapsing the menu to a small size dice and can be expanded to a full menu bar on demand.
 
-<br /><br />
 <div align="center">
   <a href="https://paypal.me/ssmak">
     <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="PayPal Donation" />
