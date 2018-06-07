@@ -13,22 +13,6 @@
 It's a big challenge for the website navigation on mobile which is limited and ralatively small screen size and tapped by finger.<br />
 **jquery-dice-menu** targets on maxmize the screen usage by collapsing the menu to a small size dice and can be expanded to a full menu bar on demand.
 
-## Features
-By supporting the optional attributes, you can customize the menu by:
-### 1. Layout (Default: column)
-Menu items will be arranged on a row or column.
-### 2. Reverse Order (Default: false)
-Menu items can be arranged in reverse order.
-### 3. Location (Default: right)
-Menu can be sticked on top, right, bottom or left.
-### 4. Offset (Default: 35%)
-If the menu is sticked on left/right, then the offset is used in the top: ?(px|%). Otherwise, it's left: ?(px|%)
-### 5. Hints (Default: true)
-Hints can be enabled or disabled.
-### 6. Hints Order (Default: bottom)
-The location of the hints.
-### 7. Menu toggle status (Default: false)
-Is the menu opened by default?
 <br /><br />
 <div align="center">
   <a href="https://paypal.me/ssmak">
@@ -39,6 +23,23 @@ Is the menu opened by default?
     <img src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg" alt="PayPal" />
   </a>
 </div>
+
+## Features
+By supporting the optional attributes, you can customize the menu by:
+#### 1. Layout (Default: column)
+Menu items will be arranged on a row or column.
+#### 2. Reverse Order (Default: false)
+Menu items can be arranged in reverse order.
+#### 3. Location (Default: right)
+Menu can be sticked on top, right, bottom or left.
+#### 4. Offset (Default: 35%)
+If the menu is sticked on left/right, then the offset is used in the top: ?(px|%). Otherwise, it's left: ?(px|%)
+#### 5. Hints (Default: true)
+Hints can be enabled or disabled.
+#### 6. Hints Order (Default: bottom)
+The location of the hints.
+#### 7. Menu toggle status (Default: false)
+Is the menu opened by default?
 
 ## Demonstration on CodePen
 https://codepen.io/ssmak/pen/jKMaeV
@@ -103,19 +104,19 @@ By supporting the optional attributes, you can customize the menu by:
 ``` html
 <ul class="jq-dice-menu" default-open="false" layout="column" reverse="false" snap-to="right" offset="35%" show-hints="true" hints-order="footer"></ul>
 ```
-### 1. Layout (Default: column, Supported: row | column)
+#### 1. Layout (Default: column, Supported: row | column)
 Menu items will be arranged on a row or column.
-### 2. Reverse Order (Default: false, Supported: true | false)
+#### 2. Reverse Order (Default: false, Supported: true | false)
 Menu items can be arranged in reverse order.
-### 3. Location (Default: right, Supported: top | right | bottom | left)
+#### 3. Location (Default: right, Supported: top | right | bottom | left)
 Menu can be sticked on top, right, bottom or left.
-### 4. Offset (Default: 35%, Supported: ?px | ?%)
+#### 4. Offset (Default: 35%, Supported: ?px | ?%)
 If the menu is sticked on left/right, then the offset is used in the top: ?(px|%). Otherwise, it's left: ?(px|%)
-### 5. Hints (Default: true, Supported: true | false)
+#### 5. Hints (Default: true, Supported: true | false)
 Hints can be enabled or disabled.
-### 6. Hints Order (Default: footer, Supported: header | footer)
+#### 6. Hints Order (Default: footer, Supported: header | footer)
 The location of the hints.
-### 7. Menu toggle status (Default: false, Supported: true | false)
+#### 7. Menu toggle status (Default: false, Supported: true | false)
 Is the menu opened by default?
 
 ## License
