@@ -1,6 +1,6 @@
 {
   "name": "jquery-dice-menu",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Expandable and Fixed location side menu bar.",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,14 @@
   "directories": {
     "test": "test"
   },
-  "keywords": ["jquery", "plugin", "dice", "menu", "expandable", "customize"],
+  "keywords": [
+    "jquery",
+    "plugin",
+    "dice",
+    "menu",
+    "expandable",
+    "customize"
+  ],
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
     "gulp": "^3.9.1",
