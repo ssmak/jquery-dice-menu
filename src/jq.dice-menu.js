@@ -10,38 +10,56 @@ var util = {
   loadScript: function loadScript(source) {
     var expectedObject = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-    return new Promise(function (resolve, reject) {
-      //check if object already existed
-      if (expectedObject != null && expectedObject != 'undefined') {
-        //object already existed -> resolve
-        resolve();
-      } else {
-        //object not found -> load script from external source
-        var scriptTag = document.createElement('script');
-        scriptTag.src = source;
-        scriptTag.onload = function () {
+    if (typeof Promise === 'undefined') {
+      // Promise not supported
+      return {
+        then: function then(callback) {
+          var scriptTag = document.createElement('script');
+          scriptTag.src = source;
+          scriptTag.onload = function () {
+            callback();
+          };
+          document.getElementsByTagName('body')[0].appendChild(scriptTag);
+        }
+      };
+    } else {
+      // Promise is supported
+      return new Promise(function (resolve, reject) {
+        //check if object already existed
+        if (expectedObject != null && expectedObject != 'undefined') {
+          //object already existed -> resolve
           resolve();
-        };
-        document.getElementsByTagName('body')[0].appendChild(scriptTag);
-      }
-    });
+        } else {
+          //object not found -> load script from external source
+          var scriptTag = document.createElement('script');
+          scriptTag.src = source;
+          scriptTag.onload = function () {
+            resolve();
+          };
+          document.getElementsByTagName('body')[0].appendChild(scriptTag);
+        }
+      });
+    }
   }
 };
 
 // bootstrap
 (function (completedCallback) {
-  // use babel-polyfill to patch the brwoser which not support html5 or es6
-  util.loadScript('https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js').then(function () {
-    // babel-polyfill loaded -> try to load jQuery
-    return util.loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js', typeof jQuery === 'undefined' ? 'undefined' : _typeof(jQuery));
-  }).then(function () {
-    // jQuery loaded -> try to load jQuery.easing
-    return util.loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js', _typeof(jQuery.easing.def));
-  }).then(function () {
-    // jQuery.easing loaded -> all dependencies
-    completedCallback();
-  }).catch(function (err) {
-    console.error(err);
+  // let the browser support promise
+  util.loadScript('https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.5.1/bluebird.min.js', typeof Promise === 'undefined' ? 'undefined' : _typeof(Promise)).then(function () {
+    // use babel-polyfill to patch the brwoser which not support html5 or es6
+    util.loadScript('https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js').then(function () {
+      // babel-polyfill loaded -> try to load jQuery
+      return util.loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js', typeof jQuery === 'undefined' ? 'undefined' : _typeof(jQuery));
+    }).then(function () {
+      // jQuery loaded -> try to load jQuery.easing
+      return util.loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js', _typeof(jQuery.easing.def));
+    }).then(function () {
+      // jQuery.easing loaded -> all dependencies
+      completedCallback();
+    }).catch(function (err) {
+      console.error(err);
+    });
   });
 })(function () {
   // all dependencies loaded
@@ -50,9 +68,11 @@ var util = {
    */
   var userLayout = $('.jq-dice-menu').attr('layout');
   var userSnapto = $('.jq-dice-menu').attr('snap-to');
-  var userDistance = $('.jq-dice-menu').attr('distance');
+  var userOffset = $('.jq-dice-menu').attr('offset');
+  var userReverse = $('.jq-dice-menu').attr('reverse');
   var userShowHints = $('.jq-dice-menu').attr('show-hints');
   var userHintsOrder = $('.jq-dice-menu').attr('hints-order');
+  var userDefaultOpen = $('.jq-dice-menu').attr('default-open');
 
   // layout
   if (!(typeof userLayout != 'undefined' && /^row|column$/.test(userLayout))) {
@@ -65,10 +85,16 @@ var util = {
     userSnapto = 'right';
   }
 
-  // distance
-  if (!(typeof userDistance != 'undefined' && /^\d+(%|px)$/.test(userDistance))) {
+  // offset
+  if (!(typeof userOffset != 'undefined' && /^\d+(%|px)$/.test(userOffset))) {
     // not set -> use default
-    userDistance = '45%';
+    userOffset = '45%';
+  }
+
+  // reverse
+  if (!(typeof userReverse != 'undefined' && /^true|false$/.test(userReverse))) {
+    // not set -> use default
+    userReverse = 'false';
   }
 
   // show-hints
@@ -80,38 +106,44 @@ var util = {
   // hints-order
   if (!(typeof userHintsOrder != 'undefined' && /^header|footer$/.test(userHintsOrder))) {
     // not set -> use default
-    userHintsOrder = 1;
+    userHintsOrder = 'footer';
+  }
+
+  // default-open
+  if (!(typeof userDefaultOpen != 'undefined' && /^true|false/.test(userDefaultOpen))) {
+    // not set -> use default
+    userDefaultOpen = 'false';
   }
 
   /*
    * Assign class based on setting
    */
-  console.warn(userLayout + ' ' + userSnapto);
+  // console.warn(`${userLayout} ${userSnapto}`);
   $('.jq-dice-menu').addClass(userLayout + ' ' + userSnapto);
-  // if(userSnapto === 'right') {
-  //   if(userLayout === 'column') {
-  //     console.warn('right-column');
-  //     $('.jq-dice-menu').addClass('column right');
-  //   }
-  // }
-  // if(userSnapto === 'left') {
-  //   if(userLayout === 'column') {
-  //     console.warn('left-column');
-  //     $('.jq-dice-menu').addClass('column left');
-  //   }
-  // }
-  // if(userSnapto === 'top') {
-  //   if(userLayout === 'row') {
-  //     console.warn('top-row');
-  //     $('.jq-dice-menu').addClass('row top');
-  //   }
-  // }
-  // if(userSnapto === 'bottom') {
-  //   if(userLayout === 'row') {
-  //     console.warn('bottom-row');
-  //     $('.jq-dice-menu').addClass('row bottom');
-  //   }
-  // }
+
+  /*
+   * Adjust from user setting
+   */
+  // reverse
+  if (userReverse === 'true') {
+    $('.jq-items').css('flex-direction', userLayout + '-reverse');
+  }
+  // offset
+  if (/^top|bottom$/.test(userSnapto)) {
+    $('.jq-dice-menu').css('left', userOffset);
+  } else {
+    $('.jq-dice-menu').css('top', userOffset);
+  }
+  // show hints
+  if (userShowHints === 'false') {
+    $('.jq-hints').css('visibility', 'hidden');
+  }
+  // hints order
+  if (userHintsOrder === 'header') {
+    $('.jq-hints').css('order', 1);
+  } else {
+    $('.jq-hints').css('order', 3);
+  }
 
   /*
    * Register menu event - menu open/close
@@ -140,7 +172,7 @@ var util = {
     // action depends on link
     // page anchor
     if (/^#/.test(link)) {
-      $('html').stop().animate({
+      $('html, body').stop().animate({
         scrollTop: $(link).offset().top
       }, 1000);
       return;
@@ -167,11 +199,24 @@ var util = {
     }
   }).mouseover(function (object) {
     var hint = $(object.currentTarget).children('span').attr('hint');
-    if (typeof hint != 'undefined') {
-      $('.jq-hints > span').html(hint);
+    if (typeof hint != 'undefined' && userShowHints === 'true') {
+      $('.jq-hints > .hint').text(hint);
+      $('.jq-hints').css('visibility', 'visible');
+      // row layout should be with equal width of hints
+      if (userLayout === 'row') {
+        $('.jq-hints > .hint').css('width', $('.jq-items').width());
+      }
     }
   }).mouseout(function (object) {
-    $('.jq-hints > span').html('&nbsp;');
+    $('.jq-hints > .hint').text('&nbsp;');
+    $('.jq-hints').css('visibility', 'hidden');
   });
+
+  // default menu open?
+  if (userDefaultOpen === 'true') {
+    $('.jq-items > li:first-child').trigger('click');
+  }
+  // make the menu visible
+  $('.jq-dice-menu').css('visibility', 'visible').addClass('play');
 });
 //# sourceMappingURL=jq.dice-menu.js.map

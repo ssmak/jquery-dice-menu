@@ -1,3 +1,6 @@
+/*
+ * Settings
+ */
 $jq-dice-color: #000;
 $jq-dice-size: 16px;
 $jq-dice-font-color: #fff;
@@ -6,13 +9,10 @@ $jq-dice-opacity: 0.6;
 $jq-dice-padding: 10px;
 $jq-dice-border: 1px solid #000;
 $jq-dice-distance: 0;
-
 $jq-dice-border-radius: 8px;
 // $jq-dice-border-radius: 50%; //circle = 50%
 
 .jq-dice-menu {
-background: yellow;
-
 	@keyframes jq-dice-menu-fadeIn {
     from {
       opacity: 0.6;
@@ -23,6 +23,7 @@ background: yellow;
   }
 
 	display: flex;
+	visibility: hidden;
 	position: fixed;
 	margin: 0;
 	padding: 0;
@@ -51,6 +52,10 @@ background: yellow;
 
 		.jq-items {
 			flex-direction: row;
+		}
+
+		.jq-hints {
+			width: 100%;
 		}
 	}
 
@@ -134,6 +139,23 @@ background: yellow;
 
 	.jq-hints {
 		display: flex;
-		background: blue;
+		visibility: hidden;
+		margin-top: 1px;
+		margin-bottom: 1px;
+		opacity: 0.6;
+
+		.hint {
+			background-color: #000;
+			padding: 5px;
+			border-radius: 8px;
+			color: #fff;
+		}
+	}
+
+	&.play {
+		animation-name: jq-dice-menu-fadeIn;
+		animation-duration: 0.1s;
+		animation-iteration-count: 1;
+		animation-fill-mode: forwards;
 	}
 }

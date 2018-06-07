@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<!-- Dice Menu, we use font-awesome 4 here -->
-		<ul class="jq-dice-menu" layout="column" snap-to="right" distance="40%" show-hints="true" hints-order="footer">
+		<ul class="jq-dice-menu" default-open="false" layout="column" reverse="false" snap-to="right" offset="35%" show-hints="true" hints-order="footer">
 			<div class="jq-items">
 				<!-- first element as a switch button -->
 				<li state="close"><span class="fa fa-th-large"></span></li>
@@ -21,7 +21,7 @@
 				<!-- open a page in a new window -->
 				<li><span class="fa fa-google-plus" href="https://plus.google.com/discover" target="_blank" hint="Google Plus"></span></li>
 				<!-- open a page in current window -->
-				<li><span class="fa fa-github" href="https:/github.com" hint="Github"></span></li>
+				<li><span class="fa fa-github" href="https://github.com" hint="Github"></span></li>
 				<!-- page link without hint -->
 				<li><span class="fa fa-yahoo" href="https://hk.yahoo.com"></span></li>
 				<!-- link to phone number -->
@@ -33,7 +33,7 @@
 			</div>
 			<!-- hints of button -->
 			<div class="jq-hints">
-				<span>&nbsp;</span>
+				<div class="hint">&nbsp;</div>
 			</div>
 		</ul>
 		<!-- Demo content -->
