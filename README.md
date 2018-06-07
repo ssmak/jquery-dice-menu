@@ -30,7 +30,7 @@ The location of the hints.
 #### 7. Menu toggle status (Default: false)
 Is the menu opened by default?
 
-<br /><br />
+<br />
 <div align="center">
   <a href="https://paypal.me/ssmak">
     <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="PayPal Donation" />
