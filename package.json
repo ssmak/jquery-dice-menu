@@ -1,6 +1,6 @@
 {
   "name": "jquery-dice-menu",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Expandable and Fixed location side menu bar.",
   "main": "index.js",
   "scripts": {
