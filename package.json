@@ -1,7 +1,7 @@
 {
   "name": "jquery-dice-menu",
   "version": "2.1.0",
-  "description": "Fixed location floating menu (expandable)",
+  "description": "Expandable and Fixed location side menu bar.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
